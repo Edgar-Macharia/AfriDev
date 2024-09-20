@@ -38,18 +38,18 @@ function NavBar() {
                   JOBS
                 </Link>
                 <ul className="dropdown-menu">
-                    <>
-                      <li>
-                        <Link to="Jobs" className="dropdown-item" href="#">
-                          Jobs
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="AddJob" className="dropdown-item" href="#">
-                          Add Job
-                        </Link>
-                      </li>
-                    </>
+                  <>
+                    <li>
+                      <Link to="Jobs" className="dropdown-item" href="#">
+                        Jobs
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="AddJob" className="dropdown-item" href="#">
+                        Add Job
+                      </Link>
+                    </li>
+                  </>
                 </ul>
               </li>
 
@@ -82,33 +82,34 @@ function NavBar() {
                   PROFILE
                 </Link>
                 <ul className="dropdown-menu">
-                  {/* {current_user ? ( */}
-                    <>
-                      <li>
-                        <Link to="/Profile" className="dropdown-item" href="#">
-                          {current_user && current_user.username}
-                        </Link>
-                      </li>
-                      <li>
-                        <a href="/" className="dropdown-item" onClick={() => logout()}>
-                          Logout
-                        </a>
-                      </li>
-                    </>
-                  {/* ) : ( */}
-                    <>
-                      <li>
-                        <Link to="/Signup" className="dropdown-item" href="#">
-                          SignUp
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/Login" className="dropdown-item" href="#">
-                          Login
-                        </Link>
-                      </li>
-                    </>
-                  {/* )} */}
+                    <li>
+                      <Link to="/Profile" className="dropdown-item" href="#">
+                        {current_user && current_user.username}
+                      </Link>
+                    </li>
+                    {current_user &&
+                      <>
+                        <li>
+                          <a
+                            href="/"
+                            className="dropdown-item"
+                            onClick={() => logout()}
+                          >
+                            Logout
+                          </a>
+                        </li>
+                      </>
+                    }
+                    <li>
+                      <Link to="/Signup" className="dropdown-item" href="#">
+                        SignUp
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/Login" className="dropdown-item" href="#">
+                        Login
+                      </Link>
+                    </li>
                 </ul>
               </li>
             </ul>
