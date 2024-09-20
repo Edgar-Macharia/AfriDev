@@ -1,0 +1,7 @@
+.list-card:hover {
+    transform: scale(1.05);
+    background-color: rgb(25, 135, 84, 0.5);
+}
+.list-card {
+    transition: transform 0.3s ease-in-out;
+}
