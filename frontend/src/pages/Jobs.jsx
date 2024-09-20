@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { JobContext } from "../context/JobContext";
+
+
 
 export default function Jobs() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -48,11 +49,15 @@ export default function Jobs() {
                 <ul className="list-group mx-5">
                   <li className="list-card m-2 me-3 list-group-item d-flex justify-content-between align-items-start shadow-sm">
                     <div>
-                      <span className="">
-                        <h5 className="">{job.title}</h5>
+                      <span className="d-flex justify-content-start">
+                        <img className="h-25 w-25 object-fit border-rounded" src={job.logo_url} alt="logo"></img>
+                        <h5 className="pt-4 ps-2">{job.title}</h5>
                       </span>
                       <p>{job.country_iso || "Remote"}</p>
+                      <span className="d-flex justify-content-between">
                       <p className="text-decoration-underline">{job.company}</p>
+                      <p>just now</p>
+                      </span>
                       {/* <Link
                       to={`/applyjob/${job.id}`}
                       className="btn btn-success btn-sm mt-2"
