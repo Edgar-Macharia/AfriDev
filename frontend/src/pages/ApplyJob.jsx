@@ -1,76 +1,77 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 
 const ApplyJob = () => {
-  const nav = useNavigate();
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const { id } = useParams();
 
-  const [resumeFile, setResumeFile] = useState(null);
-  const [letterFile, setLetterFile] = useState(null);
+  const [selectedJob, setSelectedJob] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const handleResumeChange = (event) => {
-    const file = event.target.files[0];
-    setResumeFile(file);
-  };
-
-  const handleLetterChange = (event) => {
-    const file = event.target.files[0];
-    setLetterFile(file);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-
-    setResumeFile(null);
-    setLetterFile(null);
-
-    // //Reset input values
-    document.getElementById('resume').value = '';
-    document.getElementById('letter').value = '';
-  };
-
-  const handleGoBack = () => {
-    nav('/jobs');
-  };
+  useEffect(() => {
+    const fetchJob = async (id) => {
+      try {
+        const response = await fetch(
+          `https://api.crackeddevs.com/v1/get-jobs`,
+          {
+            headers: {
+              "api-key": API_KEY,
+            },
+          }
+        );
+        const data = await response.json();
+        const selectedJob = data.find((job) => job.id === parseInt(id));
+        setSelectedJob(selectedJob);
+        console.log({ selectedJob });
+        setLoading(false);
+      } catch (error) {
+        console.log("HTTP error: " + error);
+        setLoading(false);
+      }
+    };
+    fetchJob(id);
+  }, [id, API_KEY]);
 
   return (
     <div className="container">
       <div>
-        <button type="button" className="btn btn-secondary mt-2" onClick={handleGoBack}>
-          Back
-        </button>
-        <h1 className="text-center mt-5">Apply for a Job</h1>
-      </div>
+        <Link to="/jobs" type="button" className="btn btn-outline-success mt-2">
+          <i className="bi bi-arrow-left"></i>
+        </Link>
+        {!selectedJob ? (
+          <p className="m-4">Job unavailable...</p>
+        ) : (
+          <div className="row">
+            <h1 className="text-center mt-2">Application page</h1>
+            <div className="col-8 bg-success">col-8</div>
+            <div className="col-4">
+              <div className="card ms-5" style={{ width: "18rem" }}>
+                <img
+                  src={selectedJob?.logo_url}
+                  className="d-flex justify-items-center w-50"
+                  alt="logo"
+                />
+                <div className="card-body">
+                  <h5 className="card-title">Card title</h5>
+                  <p className="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <p class="card-text">
+                    <small class="text-body-secondary">
+                      Last updated 3 mins ago
+                    </small>
+                  </p>
 
-      <form onSubmit={handleSubmit} className="mt-5">
-        <div className="mb-3">
-          <label htmlFor="resume" className="form-label">
-            Resume:
-          </label>
-          <input
-            type="file"
-            className="form-control"
-            id="resume"
-            accept=".pdf,.doc,.docx"
-            onChange={handleResumeChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="letter" className="form-label">
-            Application Letter:
-          </label>
-          <input
-            type="file"
-            className="form-control"
-            id="letter"
-            accept=".pdf,.doc,.docx"
-            onChange={handleLetterChange}
-          />
-        </div>
-        <button type="submit" className="btn btn-success">
-          Submit
-        </button>
-      </form>
+                  <a href="." className="btn btn-outline-success w-100">
+                    Apply <i class="bi bi-box-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
