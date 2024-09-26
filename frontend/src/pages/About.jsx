@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="my-5 bg-success bg-opacity-50 me-3">
+    <div className="my-3 bg-success bg-opacity-50">
       <div className="container text-center mb-4">
         <div className="row">
           <div className="col-md-8 d-flex align-items-center">

@@ -7,7 +7,7 @@ function Layout() {
   return (
     <div>
         <NavBar />
-          <div className='ms-3' style={{"minHeight":"100vh"}}>
+          <div className='mx-auto' style={{"minHeight":"100vh"}}>
             <Outlet />
           </div>
 
