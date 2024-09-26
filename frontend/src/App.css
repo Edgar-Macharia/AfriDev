@@ -5,3 +5,13 @@
 .list-card {
     transition: transform 0.3s ease-in-out;
 }
+.custom-outline-btn {
+    color: #198754;
+    border: 1px solid #1987547f;
+  }
+  
+  .custom-outline-btn:hover {
+    background-color: #1987547f;
+    color: #198754;
+    border-color: #1987547f;
+  }

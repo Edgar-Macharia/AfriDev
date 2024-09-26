@@ -43,12 +43,14 @@ const ApplyJob = () => {
         ) : (
           <div className="row">
             <h1 className="text-center mt-2">Application page</h1>
-            <div className="col-8 bg-success">col-8</div>
-            <div className="col-4">
-              <div className="card ms-5" style={{ width: "18rem" }}>
+            <div className="col-md-8 col-sm-12 bg-success">col-8
+              
+            </div>
+            <div className="col-md-4 col-sm-12">
+              <div className="card mx-auto" style={{ width: "18rem", border: "1px solid #1987547f" }}>
                 <img
                   src={selectedJob?.logo_url}
-                  className="d-flex justify-items-center w-50"
+                  className="mx-auto mt-3 w-50"
                   alt="logo"
                 />
                 <div className="card-body">
@@ -63,7 +65,7 @@ const ApplyJob = () => {
                     </small>
                   </p>
 
-                  <a href="." className="btn btn-outline-success w-100">
+                  <a href="." className="btn custom-outline-btn w-100">
                     Apply <i class="bi bi-box-arrow-right"></i>
                   </a>
                 </div>
