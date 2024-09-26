@@ -28,48 +28,29 @@ function NavBar() {
             id="navbarNavDropdown"
           >
             <ul className="navbar-nav">
-              <li className="nav-item dropdown">
-                <Link
-                  className="nav-link active dropdown-toggle "
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  JOBS
+            <li className="nav-item">
+              <Link to="/Jobs" className="nav-link active">
+                  JOBS                            
                 </Link>
-                <ul className="dropdown-menu">
-                  <>
-                    <li>
-                      <Link to="Jobs" className="dropdown-item" href="#">
-                        Jobs
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="AddJob" className="dropdown-item" href="#">
-                        Add Job
-                      </Link>
-                    </li>
-                  </>
-                </ul>
               </li>
 
               <li className="nav-item">
-                <Link
+              <Link to="/Search" className="nav-link active">
+                  SEARCH
+                </Link>
+              </li>
+              {/* <li className="nav-item">
+                <Link to="/Contact" className="nav-link active">
+                  CONTACT
+                </Link>
+              </li> */}
+              <li className="nav-item">
+              <Link
                   to="/About"
                   className="nav-link active"
                   aria-current="page"
                 >
                   ABOUT
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/Contact" className="nav-link active">
-                  CONTACT
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/Search" className="nav-link active">
-                  SEARCH
                 </Link>
               </li>
               <li className="nav-item dropdown">
