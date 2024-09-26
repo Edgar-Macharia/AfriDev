@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -9,9 +10,6 @@ export default function Jobs() {
   const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
 
-  // const { id } = useParams();
-  // const singleJob = jobs && jobs.find((job) => job.id === id);
-  // console.log(singleJob);
 
   useEffect(() => {
     const fetchJobs = async () => {
@@ -36,6 +34,8 @@ export default function Jobs() {
     fetchJobs();
   }, [API_KEY]);
 
+  
+
   return (
     <div>
       <h1 className="ms-5">Jobs</h1>
@@ -47,7 +47,7 @@ export default function Jobs() {
             {jobs.map((job) => (
               <div className="col-md-6" key={job.id}>
                 <ul className="list-group mx-5">
-                  <li className="list-card m-2 me-3 list-group-item d-flex justify-content-between align-items-start shadow-sm">
+                  <Link to={`/applyJob/${job.id}`} className="list-card m-2 me-3 list-group-item d-flex justify-content-between align-items-start shadow-sm">
                     <div>
                       <span className="d-flex justify-content-start">
                         <img className="h-25 w-25 object-fit border-rounded" src={job.logo_url} alt="logo"></img>
@@ -58,19 +58,8 @@ export default function Jobs() {
                       <p className="text-decoration-underline">{job.company}</p>
                       <p>just now</p>
                       </span>
-                      {/* <Link
-                      to={`/applyjob/${job.id}`}
-                      className="btn btn-success btn-sm mt-2"
-                    >
-                      Apply Job
-                    </Link> */}
                     </div>
-                    <div>
-                      <button className="btn btn-success btn-sm me-2">
-                        Apply
-                      </button>
-                    </div>
-                  </li>
+                  </Link>
                 </ul>
               </div>
             ))}
