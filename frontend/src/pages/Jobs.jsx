@@ -56,7 +56,7 @@ export default function Jobs() {
                       <p>{job.country_iso || "Remote"}</p>
                       <span className="d-flex justify-content-between">
                       <p className="text-decoration-underline">{job.company}</p>
-                      <p>just now</p>
+                      <p><small className="text-body-secondary">{new Date(job.created_at).toLocaleDateString()}</small></p>
                       </span>
                     </div>
                   </Link>
