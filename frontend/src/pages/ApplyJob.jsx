@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 
 const ApplyJob = () => {
   const API_KEY = process.env.REACT_APP_API_KEY;
   const { id } = useParams();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [selectedJob, setSelectedJob] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const searchParams = new URLSearchParams(location.search);
+  const page = searchParams.get("page") || 1;
+
   useEffect(() => {
-    const fetchJob = async (id) => {
+    const fetchJob = async (id, page) => {
       try {
         const response = await fetch(
-          `https://api.crackeddevs.com/v1/get-jobs`,
+          `https://api.crackeddevs.com/v1/get-jobs?page=${page}`,
           {
             headers: {
               "api-key": API_KEY,
@@ -29,73 +34,79 @@ const ApplyJob = () => {
         setLoading(false);
       }
     };
-    fetchJob(id);
-  }, [id, API_KEY]);
+    fetchJob(id, page);
+  }, [id, API_KEY, page]);
 
   const parseDescription = (description) => {
     if (!description) return {};
-  
+
     //  Clean the description by removing unwanted elements
     const cleanedDescription = description
-      .replace(/You are trained on data up to.*?\.\s*/i, '')  // Remove the training data disclaimer
-      .replace(/Job Description:?/i, '')                      // Remove "Job Description"
-      .replace(/#/g, '')                                      // Remove all '#' characters
-      .replace(/\*\*/g, '')                                   // Remove asterisks
-      .replace(/\n+/g, '\n')                                  // Replace multiple newlines with a single newline
-      .replace(/([.!?])\s+/g, '$1\n')                         // Add line breaks after sentences
+      .replace(/You are trained on data up to.*?\.\s*/i, "") // Remove the training data disclaimer
+      .replace(/Job Description:?/i, "") // Remove "Job Description"
+      .replace(/#/g, "") // Remove all '#' characters
+      .replace(/\*\*/g, "") // Remove asterisks
+      .replace(/\n+/g, "\n") // Replace multiple newlines with a single newline
+      .replace(/([.!?])\s+/g, "$1\n") // Add line breaks after sentences
       .trim();
-  
+
     // Define the sections to split the cleaned description
-    const sectionTitles = /(Role Overview:|Responsibilities:|Qualifications:|Requirements:|Preferred Skills:|Benefits:)/i;
+    const sectionTitles =
+      /(Role Overview:|Responsibilities:|Qualifications:|Requirements:|Preferred Skills:|Benefits:)/i;
     const sections = cleanedDescription.split(sectionTitles);
-  
+
     // Initialize the object to hold parsed sections
     const parsedData = {
-      jobDescription: '',
+      jobDescription: "",
       responsibilities: [],
       qualifications: [],
       preferredSkills: [],
       benefits: [],
     };
-  
+
     // Loop through sections and categorize the content
-    let currentSection = 'jobDescription';
-  
+    let currentSection = "jobDescription";
+
     sections.forEach((section, index) => {
       section = section.trim();
-      
+
       if (sectionTitles.test(section)) {
         // Convert section title to lowercase for uniformity
-        currentSection = section.toLowerCase().replace(':', '');
-        if (currentSection === 'role overview') currentSection = 'jobDescription';
-        if (currentSection === 'requirements') currentSection = 'qualifications';
+        currentSection = section.toLowerCase().replace(":", "");
+        if (currentSection === "role overview")
+          currentSection = "jobDescription";
+        if (currentSection === "requirements")
+          currentSection = "qualifications";
       } else if (section) {
         // Append text or split into list items
-        if (currentSection === 'jobDescription') {
-          parsedData[currentSection] += section + ' ';
+        if (currentSection === "jobDescription") {
+          parsedData[currentSection] += section + " ";
         } else {
           parsedData[currentSection] = section
-            .split(/\n-\s*/)               // Split by list items (lines starting with "-")
-            .filter(item => item.length > 1) // Filter out empty or invalid entries
-            .map(item => item.trim());       // Trim whitespace from each item
+            .split(/\n-\s*/) // Split by list items (lines starting with "-")
+            .filter((item) => item.length > 1) // Filter out empty or invalid entries
+            .map((item) => item.trim()); // Trim whitespace from each item
         }
       }
     });
-  
+
     // Final cleanup of job description
     parsedData.jobDescription = parsedData.jobDescription.trim();
-  
+
     // Handle any remaining hyphens in list items
     Object.keys(parsedData).forEach((key) => {
       if (Array.isArray(parsedData[key])) {
-        parsedData[key] = parsedData[key]
-          .flatMap(item => item.split(/\n-\s*/).map(subItem => subItem.trim()).filter(Boolean));
+        parsedData[key] = parsedData[key].flatMap((item) =>
+          item
+            .split(/\n-\s*/)
+            .map((subItem) => subItem.trim())
+            .filter(Boolean)
+        );
       }
     });
-  
+
     return parsedData;
   };
-  
 
   const {
     jobDescription,
@@ -105,12 +116,20 @@ const ApplyJob = () => {
     benefits,
   } = parseDescription(selectedJob?.description);
 
+  function handleBackClick() {
+    navigate(`/jobs?page=${page}`);
+  }
+
   return (
     <div className="container">
       <div>
-        <Link to="/jobs" type="button" className="btn btn-outline-success mt-2">
+        <button
+          type="button"
+          className="btn btn-outline-success mt-2"
+          onClick={handleBackClick}
+        >
           <i className="bi bi-arrow-left"></i>
-        </Link>
+        </button>
         {loading ? (
           <p>Loading...</p>
         ) : !selectedJob ? (
