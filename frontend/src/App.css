@@ -15,3 +15,17 @@
     color: #198754;
     border-color: #1987547f;
   }
+  .page-link {
+    color: #198754;
+  }
+  .page-link:hover {
+    color: #fff;
+    background-color: #198754;
+  }
+  
+  .active>.page-link, .page-link.active {
+    z-index: 3;
+    color: #fff;
+    background-color: #198754;
+    border-color: #1987547f;
+}
