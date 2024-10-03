@@ -135,12 +135,13 @@ const ApplyJob = () => {
         ) : !selectedJob ? (
           <p className="m-4">Job unavailable...</p>
         ) : (
-          <div className="row">
-            <h1 className="text-center mt-2">Application page</h1>
+          <div className="row mt-3">
             <div className="col-md-8 col-sm-12 bg-light px-3">
-              <h2>{selectedJob?.title}</h2>
-
-              <h3>Job Description</h3>
+              <h2 className="my-2">{selectedJob?.title}
+                <span className="ps-2"> - {selectedJob?.skill_level} level</span>
+              </h2>
+              <p className="ps-2">{selectedJob?.job_type}</p>
+              <h4>Job Description</h4>
               <p>{jobDescription}</p>
 
               {/* Key Responsibilities */}
@@ -202,8 +203,7 @@ const ApplyJob = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{selectedJob?.company}</h5>
-                  <p className="card-text">Level</p>
-                  <p>Remote</p>
+                  <p>{selectedJob?.country_iso || "Remote"}</p>
                   <p className="card-text">
                     <small className="text-body-secondary">
                       Last updated{" "}
@@ -211,11 +211,15 @@ const ApplyJob = () => {
                     </small>
                   </p>
 
-                  <a href="." className="btn custom-outline-btn w-100">
+                  <a href={selectedJob?.apply_url} className="btn custom-outline-btn w-100" rel="follow">
                     Apply <i className="bi bi-box-arrow-right"></i>
                   </a>
                 </div>
               </div>
+             {/* <p className="mt-1 ms-5 ps-3">
+              *
+              <span> Source: {selectedJob?.original_listing_source}</span>
+             </p> */}
             </div>
           </div>
         )}
