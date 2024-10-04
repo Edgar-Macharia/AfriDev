@@ -5,6 +5,12 @@
 .card-hover:hover {
   background-color: #1987547f;
 }
+.focus-ring-success .form-control:focus {
+  border-color: #198754;
+  box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+  outline: none;
+}
+
 .list-card {
     transition: transform 0.3s ease-in-out;
 }
