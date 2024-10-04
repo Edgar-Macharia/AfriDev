@@ -1,18 +1,21 @@
-import { useContext, useState, useEffect } from "react";
-import { JobContext } from "../context/JobContext";
+import { /* useContext,*/ useState, useEffect } from "react";
+import searchimg from "../images/Search-amico.png";
+// import { JobContext } from "../context/JobContext";
 
 function Search() {
-  const { searchJob, fetchJobs } = useContext(JobContext);
+  // const { searchJob, fetchJobs } = useContext(JobContext);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  useEffect(() => {
-    fetchJobs();
-  }, [fetchJobs]);
+  // useEffect(() => {
+  //   fetchJobs();
+  // }, [fetchJobs]);
 
   const handleSearch = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:9292/jobs/search?${searchTerm}`);
+      const response = await fetch(
+        `http://127.0.0.1:9292/jobs/search?${searchTerm}`
+      );
       const data = await response.json();
       setSearchResults(data);
     } catch (error) {
@@ -32,14 +35,23 @@ function Search() {
   }, [searchTerm]);
 
   return (
-    <div className="container my-3">
-      <div className="row justify-content-center">
-        <div className="col-lg-6">
+    <div
+      className="container my-3"
+      style={{
+        backgroundImage: `url(${searchimg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "50vh",
+        padding: "20px",
+      }}
+    >
+      <div className="row justify-content-center mb-4">
+        <div className="col-lg-6 focus-ring-success">
           <div className="input-group">
             <input
               type="text"
               className="form-control"
-              placeholder="Search for Talent or Jobs"
+              placeholder="Search for Jobs"
               value={searchTerm}
               onChange={handleInputChange}
             />
@@ -53,8 +65,9 @@ function Search() {
           </div>
         </div>
       </div>
-      {searchResults.length > 0 && (
-        <div className="row mt-3">
+
+      {searchResults.length > 0 ? (
+        <div className="row justify-content-center mb-4">
           <div className="col-lg-6">
             <ul className="list-group">
               {searchResults.map((result, index) => (
@@ -65,16 +78,9 @@ function Search() {
             </ul>
           </div>
         </div>
+      ) : (
+        <p></p>
       )}
-      <div className="row mt-3">
-        <div className="col">
-          <img
-            src="https://charityvillage.com/wp-content/uploads/2020/06/job_search_feature.png"
-            alt="search"
-            className="img-fluid"
-          />
-        </div>
-      </div>
     </div>
   );
 }
