@@ -1,7 +1,6 @@
 #  AfriDev (Job Website)
 
-This is a job website where users can sign up, log in, view their profile, browse available jobs, and post jobs.
-
+This is a simple job website that allows users to search for and view job listings directly from the public API at "https://api.crackeddevs.com/". Users can apply for jobs via external links without needing to create an account or log in.
 
 <img width="1439" alt="Screenshot 2023-06-09 at 19 17 40" src="https://github.com/EdMash00/Phase-3-project/assets/126578269/ebe7f41b-d96a-408f-84e8-414d8d2f369e">
 
@@ -21,19 +20,16 @@ This is a job website where users can sign up, log in, view their profile, brows
 
 ## Features
 
-- User Authentication: Users can sign up with a new account or log in with their existing credentials.
-- User Profile: Each user has a profile page where they can view and update their personal information.
-- Job Listing: Users can browse and search for available jobs on the website.
-- Job Posting: Employers can post job listings on the website.
-- Secure Authentication: The website implements secure authentication measures to protect user data.
-
+- Job Search: Users can search for available jobs using keywords and location filters.
+- Job Listings: Browse through a variety of job opportunities fetched from the API.
+- Apply for Jobs: Each job listing provides an external link where users can apply directly, with no need for sign-up or login.
+- Pagination: Smooth pagination to browse job listings efficiently.
 
 
 ## Technologies Used
 
 - Front-end: HTML, Bootstrap, React.js
-- Back-end: Ruby
-- Database: SQLite3
+- API: Public API from Cracked Devs
 
 
 
@@ -42,7 +38,7 @@ This is a job website where users can sign up, log in, view their profile, brows
 1. Clone the repository:
 
    ```
-   git clone https://github.com/EdMash00/Phase-3-project
+   git clone https://github.com/Edgar-Macharia/AfriDev
    ```
 
 2. Install dependencies:
@@ -51,15 +47,15 @@ This is a job website where users can sign up, log in, view their profile, brows
    cd react
    npm install
 
-   cd backend
-   bundle install
    ```
 
-3. Set up the database:
+3. Create a .env file in the root directory with your API key:
 
-   - Create a new database for the project.
-   - Configure the database connection in the `.env` file or `config` directory.
-   - Run the database migration and seeding scripts.
+   ```
+   REACT_APP_API_URL=https://api.crackeddevs.com
+   REACT_APP_API_KEY=your_api_key_here
+
+   ```
 
 4. Start the application:
 
@@ -72,36 +68,25 @@ This is a job website where users can sign up, log in, view their profile, brows
    Frontend link  
     'https://648344956a52c01d1cab4c73--astonishing-chimera-f76ab6.netlify.app/'
 
-    Backend link
-    https://afridev-z2wq.onrender.com
-
-
 
 
 
 ## Usage
 
-1. Sign Up:
-   - Click on the "Sign Up" button on the homepage.
-   - Fill in the required information in the sign-up form and submit.
-   - Upon successful registration, you will be redirected to the login page.
+1. Search for Jobs:
 
-2. Log In:
-   - Enter your credentials on the login page and click "Log In."
-   - If the credentials are valid, you will be redirected to your dashboard.
+   Navigate to the "Jobs" page.
+   Use the search bar to enter job titles, keywords, or locations to filter job listings.
+   
+3. View Job Listings:
 
-3. View Profile:
-   - On your dashboard or navigation menu, click on the "Profile" link.
-   - Here, you can view and update your personal information.
+   Browse through the paginated job listings.
+   Click on any job to view more details.
+   
+5. Apply for a Job:
 
-4. Browse Jobs:
-   - Navigate to the "Jobs" page or search for specific jobs using the search bar.
-   - View the job listings and click on a job to apply.
+   Each job listing includes an "Apply" button that directs you to an external site where you can apply for the job.
 
-5. Post a Job:
-   - Navigate to the "Add Job" page.
-   - Fill in the required information about the job and submit the form.
-   - The job listing will be published and available for candidates to view.
 
 
 
@@ -117,7 +102,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 This project is licensed under the [MIT License](LICENSE).
 
-Copyright 2023 
+Copyright 2024
 
 By Edgar Macharia
 
