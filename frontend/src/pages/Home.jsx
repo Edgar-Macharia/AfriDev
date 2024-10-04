@@ -1,4 +1,3 @@
-import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import About from "./About";
 import Search from "./Search";
@@ -38,7 +37,7 @@ function Home() {
                 <div className="col">
                   <Link
                     to="/jobs"
-                    className="card h-100 border-success focus-ring focus-ring-success card-hover shadow"
+                    className="card h-100 border-success focus-ring focus-ring-success card-hover"
                     style={{
                       "--bs-focus-ring-x": "10px",
                       "--bs-focus-ring-y": "10px",
