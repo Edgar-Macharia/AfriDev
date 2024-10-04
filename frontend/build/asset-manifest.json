@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.14a5f666.css",
+    "main.js": "/static/js/main.17983fe5.js",
+    "static/js/453.75a1a8c4.chunk.js": "/static/js/453.75a1a8c4.chunk.js",
+    "static/media/New team members-bro.png": "/static/media/New team members-bro.61e26701e9f54a4dfdfe.png",
+    "static/media/Remote team-bro.png": "/static/media/Remote team-bro.a358db007d35fd98d3a8.png",
+    "static/media/Search-amico.png": "/static/media/Search-amico.0e1faee31e28dbdec696.png",
+    "static/media/Hiring-rafiki (2).png": "/static/media/Hiring-rafiki (2).8aa642f6a946c30ac99c.png",
+    "static/media/logo1.png": "/static/media/logo1.d6e8b764ebfbcd169ef2.png",
+    "index.html": "/index.html",
+    "main.14a5f666.css.map": "/static/css/main.14a5f666.css.map",
+    "main.17983fe5.js.map": "/static/js/main.17983fe5.js.map",
+    "453.75a1a8c4.chunk.js.map": "/static/js/453.75a1a8c4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.14a5f666.css",
+    "static/js/main.17983fe5.js"
+  ]
+}
