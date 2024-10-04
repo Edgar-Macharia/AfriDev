@@ -55,7 +55,7 @@ function Home() {
                     <div className="card-body">
                       <h5 className="card-title">
                         Your skills
-                        <br /> our network
+                        <br /> Our network
                       </h5>
                       <p className="card-text">
                         Connect with companies that value remote talent
