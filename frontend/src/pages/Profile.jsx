@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { JobContext } from "../context/JobContext";
+// import { JobContext } from "../context/JobContext";
 // import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const { current_user, login, deleteUser, update } = useContext(AuthContext);
-  const { addJob } = useContext(JobContext);
+  // const { addJob } = useContext(JobContext);
   // const nav = useNavigate();
 
   const [loggedIn, setLoggedIn] = useState(false);

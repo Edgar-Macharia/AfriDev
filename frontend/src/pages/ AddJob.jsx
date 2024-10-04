@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { JobContext } from '../context/JobContext';
+// import { JobContext } from '../context/JobContext';
 
 export default function AddJob() {
 
   const {current_user} = useContext(AuthContext)
-  const { addJob } = useContext(JobContext);
+  // const { addJob } = useContext(JobContext);
 
   const [jobTitle, setJobTitle] = useState('');
   const [companyName, setCompanyName] = useState('');
@@ -16,7 +16,7 @@ export default function AddJob() {
     e.preventDefault();
 
     // Perform job posting logic
-    addJob(jobTitle, companyName, location, jobDescription, current_user.id);
+    // addJob(jobTitle, companyName, location, jobDescription, current_user.id);
 
     // Reset form inputs
     setJobTitle('');
@@ -27,8 +27,8 @@ export default function AddJob() {
 
   return (
     <div className="container">
-      {current_user && current_user?
-        <> 
+      {/* {current_user && current_user? */}
+        {/* <>  */}
       <h1 className="text-center mt-4">Add Job</h1>
       <div className="row justify-content-center mt-4">
         <div className="col-lg-6">
@@ -90,10 +90,10 @@ export default function AddJob() {
           </form>
         </div>
       </div>
-      </>
-      :
-      <div>Please log in</div>
-}
+      {/* </>
+//       :
+//       <div>Please log in</div>
+// } */}
     </div>
   );
 }
