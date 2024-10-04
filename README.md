@@ -1,4 +1,4 @@
-# AfriDev (Job Website)
+# AfriDev (Jobs Website)
 
 This is a simple job website that allows users to search for and view job listings directly from the public API at "https://api.crackeddevs.com/". Users can apply for jobs via external links without needing to create an account or log in.
 
