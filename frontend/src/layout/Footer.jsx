@@ -26,7 +26,7 @@ function Footer() {
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/" className="nav-link p-0 text-muted">
                   FAQs
                 </a>
               </li>
@@ -57,7 +57,7 @@ function Footer() {
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/" className="nav-link p-0 text-muted">
                   FAQs
                 </a>
               </li>
@@ -88,7 +88,7 @@ function Footer() {
                 </a>
               </li>
               <li className="nav-item mb-2">
-                <a href="#" className="nav-link p-0 text-muted">
+                <a href="/" className="nav-link p-0 text-muted">
                   FAQs
                 </a>
               </li>
@@ -158,21 +158,21 @@ function Footer() {
           </p>
           <ul className="list-unstyled d-flex">
             <li className="ms-3">
-              <a className="link-dark" href="#">
+              <a className="link-dark" href="/">
                 <svg className="bi" width="24" height="24">
                   <FaTwitter />
                 </svg>
               </a>
             </li>
             <li className="ms-3">
-              <a className="link-dark" href="#">
+              <a className="link-dark" href="/">
                 <svg className="bi" width="24" height="24">
                   <FaInstagramSquare />
                 </svg>
               </a>
             </li>
             <li className="ms-3">
-              <a className="link-dark" href="#">
+              <a className="link-dark" href="/">
                 <svg className="bi" width="24" height="24">
                   <FaFacebookF />
                 </svg>
