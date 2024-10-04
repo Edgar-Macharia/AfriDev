@@ -23,7 +23,6 @@ export default function Jobs() {
         );
         const data = await response.json();
         setJobs(data);
-        console.log("data: ", data);
         setLoading(false);
       } catch (error) {
         console.log("HTTP-Error: " + error);

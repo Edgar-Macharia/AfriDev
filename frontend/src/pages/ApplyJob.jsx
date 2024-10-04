@@ -27,7 +27,6 @@ const ApplyJob = () => {
         const data = await response.json();
         const selectedJob = data.find((job) => job.id === parseInt(id));
         setSelectedJob(selectedJob);
-        console.log({ selectedJob });
         setLoading(false);
       } catch (error) {
         console.log("HTTP error: " + error);
