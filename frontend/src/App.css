@@ -2,6 +2,9 @@
     transform: scale(1.05);
     background-color: rgb(25, 135, 84, 0.5);
 }
+.card-hover:hover {
+  background-color: #1987547f;
+}
 .list-card {
     transition: transform 0.3s ease-in-out;
 }
