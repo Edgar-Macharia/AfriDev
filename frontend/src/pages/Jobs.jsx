@@ -43,7 +43,7 @@ export default function Jobs() {
 
   return (
     <div>
-      <h1 className="ms-5">Jobs</h1>
+      <h1 className="ms-5 ps-3">Jobs</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
