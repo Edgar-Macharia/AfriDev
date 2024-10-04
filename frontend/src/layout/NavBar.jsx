@@ -7,9 +7,9 @@ function NavBar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-success bg-opacity-50 p-4 ">
+      <nav className="navbar navbar-expand-md bg-success bg-opacity-50 p-4 ">
         <div className="container">
-          <Link to="/" className="navbar-brand fst-italic ">
+          <Link to="/" className="navbar-brand">
             AfriDEV
           </Link>
           <button
@@ -29,13 +29,13 @@ function NavBar() {
           >
             <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/Jobs" className="nav-link active">
+              <Link to="/Jobs" className="nav-link active" aria-current="page">
                   JOBS                            
                 </Link>
               </li>
 
               <li className="nav-item">
-              <Link to="/Search" className="nav-link active">
+              <Link to="/Search" className="nav-link active" aria-current="page">
                   SEARCH
                 </Link>
               </li>
