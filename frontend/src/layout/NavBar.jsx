@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import logo from "../images/logo1.png";
 import { AuthContext } from "../context/AuthContext";
 
 function NavBar() {
@@ -7,10 +8,10 @@ function NavBar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-md bg-success bg-opacity-50 p-4 ">
+      <nav className="navbar navbar-expand-md bg-success bg-opacity-50 p-4" style={{height: "80px"}}>
         <div className="container">
           <Link to="/" className="navbar-brand">
-            AfriDEV
+            <img src={logo} alt="logo" className="img-fluid" style={{ width: '160px', height: 'auto' }} />
           </Link>
           <button
             className="navbar-toggler"
