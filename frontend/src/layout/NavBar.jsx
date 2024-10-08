@@ -8,11 +8,19 @@ function NavBar() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand-md bg-success bg-opacity-50 p-4" style={{height: "80px"}}>
-        <div className="container">
+      <nav className="navbar navbar-expand-md bg-success bg-opacity-50 p-3">
+        <div className="container-md">
+          {/* Logo Section */}
           <Link to="/" className="navbar-brand">
-            <img src={logo} alt="logo" className="img-fluid" style={{ width: '160px', height: 'auto' }} />
+            <img
+              src={logo}
+              alt="logo"
+              className="img-fluid"
+              style={{ width: "120px", height: "auto" }}
+            />
           </Link>
+
+          {/* Toggler Button for Smaller screen */}
           <button
             className="navbar-toggler"
             type="button"
@@ -24,29 +32,35 @@ function NavBar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
+
+          {/* Collapsible Section */}
           <div
-            className="collapse navbar-collapse d-flex justify-content-end "
+            className="collapse navbar-collapse d-flex justify-content-end"
             id="navbarNavDropdown"
           >
             <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/Jobs" className="nav-link active" aria-current="page">
-                  JOBS                            
+              <li className="nav-item">
+                <Link
+                  to="/Jobs"
+                  className="nav-link active"
+                  aria-current="page"
+                >
+                  JOBS
                 </Link>
               </li>
 
               <li className="nav-item">
-              <Link to="/Search" className="nav-link active" aria-current="page">
+                <Link
+                  to="/Search"
+                  className="nav-link active"
+                  aria-current="page"
+                >
                   SEARCH
                 </Link>
               </li>
-              {/* <li className="nav-item">
-                <Link to="/Contact" className="nav-link active">
-                  CONTACT
-                </Link>
-              </li> */}
+              
               <li className="nav-item">
-              <Link
+                <Link
                   to="/About"
                   className="nav-link active"
                   aria-current="page"
@@ -64,34 +78,34 @@ function NavBar() {
                   PROFILE
                 </Link>
                 <ul className="dropdown-menu">
-                    <li>
-                      <Link to="/Profile" className="dropdown-item" href="#">
-                        {current_user && current_user.username}
-                      </Link>
-                    </li>
-                    {current_user &&
-                      <>
-                        <li>
-                          <a
-                            href="/"
-                            className="dropdown-item"
-                            onClick={() => logout()}
-                          >
-                            Logout
-                          </a>
-                        </li>
-                      </>
-                    }
-                    <li>
-                      <Link to="/Signup" className="dropdown-item" href="#">
-                        SignUp
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/Login" className="dropdown-item" href="#">
-                        Login
-                      </Link>
-                    </li>
+                  <li>
+                    <Link to="/Profile" className="dropdown-item" href="#">
+                      {current_user && current_user.username}
+                    </Link>
+                  </li>
+                  {current_user && (
+                    <>
+                      <li>
+                        <a
+                          href="/"
+                          className="dropdown-item"
+                          onClick={() => logout()}
+                        >
+                          Logout
+                        </a>
+                      </li>
+                    </>
+                  )}
+                  <li>
+                    <Link to="/Signup" className="dropdown-item" href="#">
+                      SignUp
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/Login" className="dropdown-item" href="#">
+                      Login
+                    </Link>
+                  </li>
                 </ul>
               </li>
             </ul>
