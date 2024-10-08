@@ -78,6 +78,10 @@ function Home() {
         </div>
       </div>
       <Search id="search-section" />
+      <div className="d-flex justify-content-center">
+      <h5 className="my-4 p-2 text-center fst-italic rounded border-top border-bottom border-success-subtle">~ About Us ~</h5>
+      </div>
+      
       <About />
     </>
   );
