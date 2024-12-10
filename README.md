@@ -15,6 +15,7 @@ This is a simple job website that allows users to search for and view job listin
 
 - Front-end: HTML, Bootstrap, React.js
 - API: Public API from Cracked Devs
+- Backend: Rails, SQLite
 
 ## Installation
 
