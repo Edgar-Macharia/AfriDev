@@ -70,7 +70,7 @@ function Home() {
             <div className="p-3">
               <img
                 className="img-fluid"
-                src="https://prepinsta.com/wp-content/uploads/2021/05/HackerRank-Advance-Coding-Questions.webp"
+                src="/developer.webp"
                 alt="developer"
               />
             </div>
@@ -79,9 +79,11 @@ function Home() {
       </div>
       <Search id="search-section" />
       <div className="d-flex justify-content-center">
-      <h5 className="my-4 p-2 text-center fst-italic rounded border-top border-bottom border-success-subtle">~ About Us ~</h5>
+        <h5 className="my-4 p-2 text-center fst-italic rounded border-top border-bottom border-success-subtle">
+          ~ About Us ~
+        </h5>
       </div>
-      
+
       <About />
     </>
   );
